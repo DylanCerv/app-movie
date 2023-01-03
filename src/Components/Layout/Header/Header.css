@@ -1,0 +1,15 @@
+header.header{
+    background: var(--color-bg-header);
+    padding: 1rem 1.3rem;
+}
+
+div input.search#search {
+    background: var(--color-obj-nav);
+    color: var(--color-text-bg-light);
+    padding: .6rem 1.1rem;
+    padding-left: 2rem;
+    border-radius: 50px;
+    border: none !important;
+    max-width: 10rem;
+    outline: 0;
+}

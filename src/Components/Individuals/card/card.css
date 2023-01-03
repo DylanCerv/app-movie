@@ -1,0 +1,13 @@
+.porcent20{
+    width: calc(100% - 90%);
+}
+
+.estrella {
+    color: var(--yellow);
+}
+
+.tituloCard{
+    height: 75px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

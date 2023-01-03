@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --color-bg-body: #111111; */
+  /* --color-bg-header: #090909; */
+  --color-bg-body: #090909;
+  --color-bg-header: #111111;
+
+  --color-card: #212529;
+  --color-text-bg-light: #343a40;
+  --color-obj-nav: #bcbfc1;
+  --color-obj-nav-active: #caced1;
+  --color-title: #e9ecef;
+  --color-letter_1: #bbb;
+  --color-letter_2: #6c757d;
+  --color-letter_3: rgb(73, 79, 84, 0.4);
+  --color-border: #494f54;
+  --color-bg-star: #343a40;
+  --color-select: #00acc1;
+  --color-star: #8c7000;
+
+  /* Blanco */
+
+  --colo-bg-white: #fff;
+  --colo-bg-white-2: #fafafa;
+  --color-text: #000;
+  --color-text-87: rgba(0, 0, 0, 0.871);
+  --color-text-gray: #0000008a;
+
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #00acc1;
+  --secondary: #212529;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg-body);
+  color: var(--color-letter_1);
+  font-family: var(--font-family-sans-serif);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-title);
+  font-weight: 700;
+}
+
+p,
+a {
+  font-size: 18px;
+}
+
+li {
+  list-style: none;
+}
+
+section {
+  margin: 1rem 0;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.prevArrow,
+.nextArrow {
+  position: absolute;
+  z-index: 100;
+  top: 40%;
+  padding: 0.5rem;
+  border: 2px solid #f2f2f28d;
+  border-radius: 10px;
+}
+
+.prevArrow:hover,
+.nextArrow:hover {
+  background-color: #f2f2f218;
+}
+
+.prevArrow {
+  left: 10px;
+}
+
+.nextArrow {
+  right: 10px;
+}
+
+.imgCover {
+  width: auto;
+}
+.bg-section {
+  background-color: var(--color-bg-header);
+}
+.box-shadow-card {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.6);
+}
