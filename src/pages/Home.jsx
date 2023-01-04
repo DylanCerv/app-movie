@@ -5,6 +5,7 @@ import Carrusel from "../Components/Complejos/Carrusel/Carrusel";
 import Cine from "../Components/Individuals/Cine/Cine";
 import Estrenos from "../Components/Individuals/Estrenos/Estrenos";
 import HomeCarruselLayout from "../Components/Layout/HomeCarruselLayout";
+import Loader from "../Components/Individuals/Loader/Loader";
 /** Slider **/
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -88,14 +89,17 @@ export default function Home() {
     isLoading_TopRatedTV &&
     isLoading_Trending
   ) {
-    return <p>Loading...</p>;
+    return <Loader></Loader>;
   }
+  console.log(data_UpComingMovies)
 
   return (
     <>
-      <section className="max-w-screen-lg xl:w-screen h-full mx-auto flex flex-col gap-8 border-transparent m-0 pt-1 lg:flex-row">
-        <div className="lg:w-[85%]">
-          <h1 className="text-center mb-2">EN CINE</h1>
+      <section
+        className="max-w-[1200px] xl:w-screen h-full mx-auto flex flex-col justify-center gap-1 border-transparent m-0 pt-1 lg:flex-row"
+      >
+        <div className="lg:w-[65%] mb-5">
+          <h1 className="text-[var(--yellow)] uppercase text-center text-lg mb-2 md:text-2xl">EN CINE</h1>
           <Slider {...settingsCine}>
             {status_NowPlayingMovies === "success" &&
               data_NowPlayingMovies.results.map((dataMovie, index) => (
@@ -109,17 +113,18 @@ export default function Home() {
               ))}
           </Slider>
         </div>
-        <div className="flex flex-col gap-1 h-full lg:w-[15%]">
-          <h2>Proximamente</h2>
+        <div className="flex flex-col gap-1 h-full  min-[600px]:pl-10 lg:w-[35%] ">
+          <h2 className="text-[var(--yellow)] uppercase text-center text-lg mb-2 md:text-1xl lg:mt-5 lg:mb-8">Proximamente</h2>
           {status_UpComingMovies === "success" && (
             <Slider
-              className=" lg:flex lg:flex-col lg:bg-section"
+              className="verticalSlider p-2 lg:rounded-lg lg:py-5 lg:flex lg:flex-col lg:bg-section lg:m-2 lg:bg-[var(--color-bg-header)]"
               {...settingsCarrunselVertical}
             >
               {status_UpComingMovies === "success" &&
                 data_UpComingMovies.results.map((data, index) => (
                   <Estrenos
                     imgCover={data.poster_path}
+                    title={data.title}
                     id={data.id}
                     key={index}
                   />
@@ -161,7 +166,7 @@ export default function Home() {
             ))}
         </Carrusel>
       </HomeCarruselLayout>
-      <HomeCarruselLayout title={`Series`}>
+      <HomeCarruselLayout title={`Series (TV)`}>
         <Carrusel title={`Popular`} status={status_PopularTV}>
           {status_PopularTV === "success" &&
             data_PopularTV.results.map((data, index) => (

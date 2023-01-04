@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./card.css";
 import { voteAverageFilm } from "../../../utils/help";
 
-export default function Card({ title, imgCover, stars, date, type, id }) {
+export default function CardTV({ title, imgCover, stars, type, language, id }) {
   return (
     <div className="bg-section box-shadow-card w-auto mx-2 flex flex-col justify-center items-center gap-1 mb-5">
       <Link to={`/${type}/${id}`}>
@@ -27,7 +27,7 @@ export default function Card({ title, imgCover, stars, date, type, id }) {
         </Link>
         <div className="w-full px-[10%]">
           <span className="text-sm flex flex-row gap-2 justify-center ">
-            {date}
+            Lenguaje: {language}
           </span>
         </div>
       </div>

@@ -8,7 +8,7 @@ export default function Carrusel({children, title, status}) {
 
   return (
     <div className='flex flex-col gap-1'>
-        <h2 className='mb-3'>{title}</h2>
+        <h2 className='mb-3 uppercase lg:text-xl'>{title}</h2>
         {
           status === 'success' && 
           <Slider className='flex flex-row gap-3 w-full pb-5' {...settingsCarrunsel}>

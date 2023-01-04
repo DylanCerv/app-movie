@@ -5,6 +5,7 @@ const responsive = [
   {
     breakpoint: 480,
     settings: {
+      arrows: false,
       slidesToShow: 2.2,
     }
   },
@@ -35,12 +36,35 @@ const responsive = [
   },
 ];
 
+export const settingsCine = {
+  dots: false,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 5000,
+  arrows: false,
+};
+export const settingsCarrunsel = {
+  dots: false,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 6,
+  slidesToScroll: 1,
+  arrows: true,
+  nextArrow: <CustomNextArrow/>,
+  prevArrow: <CustomPrevArrow />,
+  responsive,
+};
+
 
 const responsiveVertical = [
   {
     breakpoint: 480,
     settings: {
       vertical: false,
+      arrows: false,
       slidesToShow: 2.2,
     }
   },
@@ -78,39 +102,18 @@ const responsiveVertical = [
     settings: {
       slidesToShow: 6,
       vertical: false,
+      nextArrow: <CustomNextArrow/>,
+      prevArrow: <CustomPrevArrow />,
     }
   },
 ];
-
-export const settingsCine = {
-  dots: false,
-  infinite: true,
-  speed: 300,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 5000,
-  arrows: false,
-};
-export const settingsCarrunsel = {
-  dots: false,
-  infinite: false,
-  speed: 300,
-  slidesToShow: 8,
-  slidesToScroll: 1,
-  arrows: true,
-  nextArrow: <CustomNextArrow/>,
-  prevArrow: <CustomPrevArrow />,
-  responsive,
-};
-
 
 
 export const settingsCarrunselVertical = {
   dots: false,
   infinite: false,
   speed: 300,
-  slidesToShow: 3,
+  slidesToShow: 2,
   slidesToScroll: 1,
   arrows: true,
   vertical: true,

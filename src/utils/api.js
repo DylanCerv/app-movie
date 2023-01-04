@@ -19,7 +19,6 @@ export const getData = async(info)=>{
         const n_page = queryKey[3]
         const language = queryKey[4]
         const otherGETs = queryKey[5]
-
         const response = await axios.get(`${URL_api}/${typeSearch}/${datosTraer}?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`);
         return response.data;
     } catch (error) {
@@ -39,6 +38,17 @@ export const getDataTrending = async(info)=>{
         const otherGETs = queryKey[3]
 
         const response = await axios.get(`${URL_api}/trending/all/day?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`);
+        return response.data;
+    } catch (error) {
+        console.error(error);
+        return { error };
+    }
+}
+
+
+export const getDataInfinity = async(typeSearch, datosTraer, n_page, otherGETs='', language='es-ES')=>{
+    try {
+        const response = await axios.get(`${URL_api}/${typeSearch}/${datosTraer}?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`);
         return response.data;
     } catch (error) {
         console.error(error);

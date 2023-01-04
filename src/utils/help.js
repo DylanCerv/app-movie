@@ -24,10 +24,30 @@
  */
 
 /**
+ * Identifica en que pagina se encuentra el usuario y devuelve un valor que se usa en la API para poder
+ * llamar los datos necesarios
+ * @param {String} pathname URL de la pagina en donde esta parado
+ * @returns String - El nombre de la pagina para poder llamar los datos en la API
+ */
+export const identifyPage = (pathname) => {
+    switch (pathname) {
+      case "/search/movies":
+        return "movie";
+        break;
+      case "/search/tv":
+        return "tv";
+        break;
+      default:
+        return "movie";
+        break;
+    }
+};
+
+/**
  * Genera un array con los valores necesarios para hacer la llamada de a la API con ayuda de React Query
  * @param {String} nameReactQuery El nombre que se usa como identificador en React Query
- * @param {String} searchAPI Lo que quiere que se traiga de la aqui, ejemplo: 'popular', 'upcoming', etc...
  * @param {String} typeSearch Solo recibe 2 valores "movie" o "tv", ayuda a identificar en la API que debe de buscar (peliculas o series de tv)
+ * @param {String} searchAPI Lo que quiere que se traiga de la aqui, ejemplo: 'popular', 'upcoming', etc...
  * @param {Integer} page El numero de pagina que se trae de la API, si no se declara si valor por defecto es 1 (opcional)
  * @param {String} otherVarsGETs Otras variables GET que se van a usar para hacer filstros en la API (opcional)
  * @param {String} language El idioma en que se van a traer los datos de la API, ejemplo: en-US, es-MX, es-ES, etc... (opcional)
