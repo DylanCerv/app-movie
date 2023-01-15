@@ -13,13 +13,28 @@ function App() {
       <Layout className="">
         <Routes>
           <Route path="/" element={<Home />} />
+          
+          {/* Rutas del carrusel */}
+          <Route path="/movie/popular" element={<SearchTypes />} />
+          <Route path="/movie/top_rated" element={<SearchTypes />} />
+          <Route path="/tv/popular" element={<SearchTypes />} />
+          <Route path="/tv/top_rated" element={<SearchTypes />} />
+          
+          {/* Rutas de peliculas y serie individual */}
           <Route path="/movie/:id" element={<Movie />} />
           <Route path="/tv/:id" element={<Movie />} />
+          
+          {/* Rutas del perfil de la persona */}
           <Route path="/person/:id" element={<Person />} />
+          
+          {/* Rutas del buscador */}
           <Route path="/search" element={<Search />} />
-          <Route path="/search/popular" element={<SearchTypes />} />
+          
+          {/* Rutas para buscar por tipo */}
           <Route path="/search/tv" element={<SearchTypes />} />
           <Route path="/search/movies" element={<SearchTypes />} />
+          
+          {/* Rutas de busqueda por genero */}
           <Route path="/genero/:genre/tv" element={<SearchTypes />} />
           <Route path="/genero/:genre/movie" element={<SearchTypes />} />
           <Route path="/search/:search" element={<SearchTypes />} />

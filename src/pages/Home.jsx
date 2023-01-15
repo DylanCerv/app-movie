@@ -6,6 +6,7 @@ import Cine from "../Components/Individuals/Cine/Cine";
 import Estrenos from "../Components/Individuals/Estrenos/Estrenos";
 import HomeCarruselLayout from "../Components/Layout/HomeCarruselLayout";
 import Loader from "../Components/Individuals/Loader/Loader";
+import CardSearchMore from "../Components/Individuals/card/CardSearchMore";
 /** Slider **/
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -91,7 +92,6 @@ export default function Home() {
   ) {
     return <Loader></Loader>;
   }
-  console.log(data_UpComingMovies)
 
   return (
     <div className="p-2 md:px-10 lg:px-20">
@@ -134,7 +134,10 @@ export default function Home() {
         </div>
       </section>
       <HomeCarruselLayout title={`Peliculas`}>
-        <Carrusel title={`Popular`} status={status_PopularMovies}>
+        <Carrusel
+          title={`Popular`}
+          status={status_PopularMovies}
+        >
           {status_PopularMovies === "success" &&
             data_PopularMovies.results.map((data, index) => (
               <Card
@@ -147,6 +150,9 @@ export default function Home() {
                 key={index}
               />
             ))}
+            <CardSearchMore
+              url="/movie/popular"
+            />
         </Carrusel>
         <Carrusel
           title={`Mejor Valoradas por los Usuarios`}
@@ -164,10 +170,16 @@ export default function Home() {
                 key={index}
               />
             ))}
+            <CardSearchMore
+              url="/movie/top_rated"
+            />
         </Carrusel>
       </HomeCarruselLayout>
       <HomeCarruselLayout title={`Series (TV)`}>
-        <Carrusel title={`Popular`} status={status_PopularTV}>
+        <Carrusel
+          title={`Popular`}
+          status={status_PopularTV}
+        >
           {status_PopularTV === "success" &&
             data_PopularTV.results.map((data, index) => (
               <Card
@@ -180,6 +192,9 @@ export default function Home() {
                 key={index}
               />
             ))}
+            <CardSearchMore
+              url="/tv/popular"
+            />
         </Carrusel>
         <Carrusel
           title={`Mejor Valoradas por los Usuarios`}
@@ -197,6 +212,9 @@ export default function Home() {
                 key={index}
               />
             ))}
+            <CardSearchMore
+              url="/tv/top_rated"
+            />
         </Carrusel>
       </HomeCarruselLayout>
     </div>
