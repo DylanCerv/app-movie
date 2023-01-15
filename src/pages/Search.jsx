@@ -9,21 +9,49 @@ import ResultSearchLayout from '../Components/Layout/ResultSearchLayout';
 
 import QMoviesJSON from "./../utils/dataTest/Q.json";
 import QPersonsJSON from "./../utils/dataTest/Person.json";
+import { useLocation } from "react-router-dom";
+import { useQuery } from 'react-query';
+import { convert_In_Array_To_API } from '../utils/help';
+import { getData } from '../utils/api';
+import Loader from '../Components/Individuals/Loader/Loader';
 
 export default function Search() {
-  const navigte = useNavigate();
+  const navigate = useNavigate();
   const [dataGET, setDataGET] = useState(undefined);
+  // const { search } = useLocation();
+  const { q } = getQuery_GETVariable(['q']);
+
+  const dataSearch = convert_In_Array_To_API("dataSearch", "search", "multi", 1, `&query=${q}`);
+
+  const {
+    data,
+    error,
+    isLoading,
+    status,
+  } = useQuery(dataSearch, getData);
+
 
   useEffect(()=>{
-      const variables = getQuery_GETVariable(['q']);
-      variables ? setDataGET(variables) : setDataGET(false);
+      const { q } = getQuery_GETVariable(['q']);
+      q ? setDataGET(q) : setDataGET(false);
   },[])
 
   useEffect(()=>{
     if (dataGET === false && dataGET !== undefined) {
-      navigte('/');
+      navigate('/');
     }
   },[dataGET])
+  useEffect(()=>{
+    if (dataGET === false && dataGET !== undefined) {
+      navigate('/');
+    }
+  },[dataGET])
+
+
+  if (isLoading) {
+    return <Loader></Loader>;
+  }
+  console.log(data)
 
   return (
     <>
@@ -31,22 +59,23 @@ export default function Search() {
       dataGET &&
         <div className='flex flex-col gap-2'>
           <div className='bg-section p-5'>
-            <h1 className='text-3xl'>Buscar «terror» </h1>
+            <h1 className='text-3xl'>Buscar «{q}» </h1>
           </div>
           <ResultSearchLayout title={`Titulos`}>
             {
-              QMoviesJSON.results.map((data, index)=>(
+              data.results.map((data, index)=>(
                   <CardSearchMovie 
-                    title={data.original_title}
+                    title={data.title ? data.title : data.name}
                     date={data.release_date}
                     vote_average={data.vote_average}
                     imgCover={data.poster_path}
+                    type = {data.media_type}
                     id={data.id}
                     key={index}
                   />
               ))
             }
-            { QMoviesJSON.total_pages > 1 && <LinkSeeMore />}
+            { data.total_pages > 1 && <LinkSeeMore q={q} />}
           </ResultSearchLayout>
           <ResultSearchLayout title={`Personas`}>
             {

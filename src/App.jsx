@@ -19,6 +19,9 @@ function App() {
           <Route path="/search/popular" element={<SearchTypes />} />
           <Route path="/search/tv" element={<SearchTypes />} />
           <Route path="/search/movies" element={<SearchTypes />} />
+          <Route path="/genero/:genre/tv" element={<SearchTypes />} />
+          <Route path="/genero/:genre/movie" element={<SearchTypes />} />
+          <Route path="/search/:search" element={<SearchTypes />} />
         </Routes>
       </Layout>
     </>

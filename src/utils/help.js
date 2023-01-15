@@ -31,14 +31,17 @@
  */
 export const identifyPage = (pathname) => {
     switch (pathname) {
-      case "/search/movies":
+      case "movies":
         return "movie";
         break;
-      case "/search/tv":
+      case "tv":
         return "tv";
         break;
+    case "genero":
+        return "gener";
+        break;
       default:
-        return "movie";
+        return false; // indica que debera buscar este valor tanto en las peliculas como en las series
         break;
     }
 };
@@ -118,6 +121,125 @@ export const voteCountFilm = (voteCount)=>{
             break;
         default:
             return voteCount;
+            break;
+    }
+}
+
+
+export const searchGenere = (genere, type)=>{
+    switch (type) {
+        case "tv": 
+                switch (genere) {
+                    case "Action_Adventure":
+                        return 10759;
+                        break;
+                    case "Animacion":
+                        return 16;
+                        break;
+                    case "Comedia":
+                        return 35;
+                        break;
+                    case "Crimen":
+                        return 80;
+                        break;
+                    case "Documental":
+                        return 99;
+                        break;
+                    case "Drama":
+                        return 18;
+                        break;
+                    case "Familia":
+                        return 10751;
+                        break;
+                    case "Infantil":
+                        return 10762;
+                        break;
+                    case "Misterio":
+                        return 9648;
+                        break;
+                    case "Noticias":
+                        return 10763;
+                        break;
+                    case "Realidad":
+                        return 10764;
+                        break;
+                    case "Ciencia_Ficcion_y_Fantasia":
+                        return 10765;
+                        break;
+                    case "Telenovelas":
+                        return 10766;
+                        break;
+                    case "Talk_Show":
+                        return 10767;
+                        break;
+                    case "Guerra_y_Politica":
+                        return 10768;
+                        break;
+                    case "Western":
+                        return 37;
+                        break;
+                }
+            break;
+        case "movie":
+                switch (genere) {
+                    case "Accion":
+                        return 28;
+                    case "Aventura":
+                        return 12;
+                        break;
+                    case "Animacion":
+                        return 16;
+                        break;
+                    case "Comedia":
+                        return 35;
+                        break;
+                    case "Crimen":
+                        return 80;
+                        break;
+                    case "Documental":
+                        return 99;
+                        break;
+                    case "Drama":
+                        return 18;
+                        break;
+                    case "Familia":
+                        return 10751;
+                        break;
+                    case "Fantasia":
+                        return 14;
+                        break;
+                    case "Historia":
+                        return 36;
+                        break;
+                    case "Terror":
+                        return 27;
+                        break;
+                    case "Musical":
+                        return 10402;
+                        break;
+                    case "Misterio":
+                        return 9648;
+                        break;
+                    case "Romance":
+                        return 10749;
+                        break;
+                    case "Ciencia_Ficcion":
+                        return 878;
+                        break;
+                    
+                    case "TV_movie":
+                        return 10770;
+                        break;
+                    case "Suspenso":
+                        return 53;
+                        break;
+                    case "Guerra":
+                        return 10752;
+                        break;
+                    case "Western":
+                        return 37;
+                        break;
+                }
             break;
     }
 }

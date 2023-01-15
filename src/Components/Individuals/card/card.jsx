@@ -9,7 +9,7 @@ export default function Card({ title, imgCover, stars, date, type, id }) {
       <Link to={`/${type}/${id}`}>
         <img
           className=""
-          src={`https://image.tmdb.org/t/p/w500${imgCover}`}
+          src={imgCover && `https://image.tmdb.org/t/p/w200${imgCover}`}
           alt=""
         />
       </Link>

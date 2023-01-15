@@ -48,6 +48,8 @@ export const getDataTrending = async(info)=>{
 
 export const getDataInfinity = async(typeSearch, datosTraer, n_page, otherGETs='', language='es-ES')=>{
     try {
+        // console.log(`${URL_api}/${typeSearch}/${datosTraer}?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`)
+        // return
         const response = await axios.get(`${URL_api}/${typeSearch}/${datosTraer}?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`);
         return response.data;
     } catch (error) {

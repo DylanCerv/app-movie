@@ -94,7 +94,7 @@ export default function Home() {
   console.log(data_UpComingMovies)
 
   return (
-    <>
+    <div className="p-2 md:px-10 lg:px-20">
       <section
         className="max-w-[1200px] xl:w-screen h-full mx-auto flex flex-col justify-center gap-1 border-transparent m-0 pt-1 lg:flex-row"
       >
@@ -199,6 +199,6 @@ export default function Home() {
             ))}
         </Carrusel>
       </HomeCarruselLayout>
-    </>
+    </div>
   );
 }
