@@ -1,22 +1,23 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
-import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import BTNCategory from "../Components/Individuals/BTNCategory/BTNCategory";
 import PeliculaJSON from "./../utils/dataTest/pelicula.json";
 import { voteAverageFilm, durationFilm, voteCountFilm } from "../utils/help";
 import { getData } from "../utils/api";
-import { convert_In_Array_To_API } from "../utils/help";
+import { convert_In_Array_To_API, convert_Url_To_Array } from "../utils/help";
 import { useQuery } from "react-query";
 import PerfilPerson from "../Components/Individuals/PerfilPerson/PerfilPerson";
 
 export default function Movie() {
   const { id } = useParams();
+  const { pathname } = useLocation();
 
-  const movie = convert_In_Array_To_API("movie", "movie", `${id}`);
-  const movie_Credits = convert_In_Array_To_API("credits", "movie", `${id}/credits`);
-  const movie_Videos = convert_In_Array_To_API("videos", "movie", `${id}/videos`);
+  const arrayURL = convert_Url_To_Array(pathname);
+  const movie = convert_In_Array_To_API("movie", arrayURL[0], `${id}`);
+  const movie_Credits = convert_In_Array_To_API("credits", arrayURL[0], `${id}/credits`);
+  const movie_Videos = convert_In_Array_To_API("videos", arrayURL[0], `${id}/videos`);
 
   const {
     data: data_Credits,
@@ -43,10 +44,10 @@ export default function Movie() {
     return <p>loading...</p>;
   }
 
-  const principals = data_Credits.cast.slice(0, 10);
-  console.log('credits', data_Credits);
-  console.log('movie', data_Movie);
-  console.log('video', data_Videos);
+  const principals = data_Credits && data_Credits.cast.slice(0, 10);
+  // console.log('credits', data_Credits);
+  // console.log('movie', data_Movie);
+  // console.log('video', data_Videos);
 
   return (
     <>
@@ -58,7 +59,7 @@ export default function Movie() {
           <div className="flex flex-col">
             <div className="relative z-[1] w-full">
               <div className="">
-                <LazyLoad className="bg-black">
+                <div className="bg-black">
                   <a href={data_Movie.homepage} target="_blank">
                     <img
                       className="m-auto my-4"
@@ -66,7 +67,7 @@ export default function Movie() {
                       alt=""
                     />
                   </a>
-                </LazyLoad>
+                </div>
                 <div className="flex flex-col">
                   <div className="text-lg font-bold flex flex-row gap-2 justify-center">
                     <div className="flex flex-row">
@@ -128,7 +129,12 @@ export default function Movie() {
               <h1 className="text-2xl uppercase">Trailer</h1>
               <ReactPlayer
                 className="flex justify-center"
-                url={`https://www.youtube.com/watch?v=${data_Videos && data_Videos.results[0].key}`}
+                url={`https://www.youtube.com/watch?v=${
+                    arrayURL[0] == 'tv' ?
+                      !data_Videos ? data_Videos.results[0].key : ""
+                    :
+                      data_Videos ? data_Videos.results[0].key : ""
+                  }`}
                 playing={true}
                 controls={false}
                 width={"auto"}
