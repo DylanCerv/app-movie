@@ -130,116 +130,129 @@ export const searchGenere = (genere, type)=>{
     switch (type) {
         case "tv": 
                 switch (genere) {
-                    case "Action_Adventure":
+                    case "accion_adventura":
                         return 10759;
                         break;
-                    case "Animacion":
+                    case "animacion":
                         return 16;
                         break;
-                    case "Comedia":
+                    case "comedia":
                         return 35;
                         break;
-                    case "Crimen":
+                    case "crimen":
                         return 80;
                         break;
-                    case "Documental":
+                    case "documental":
                         return 99;
                         break;
-                    case "Drama":
+                    case "drama":
                         return 18;
                         break;
-                    case "Familia":
+                    case "familia":
                         return 10751;
                         break;
-                    case "Infantil":
+                    case "infantil":
                         return 10762;
                         break;
-                    case "Misterio":
+                    case "misterio":
                         return 9648;
                         break;
-                    case "Noticias":
+                    case "noticias":
                         return 10763;
                         break;
-                    case "Realidad":
+                    case "realidad":
                         return 10764;
                         break;
-                    case "Ciencia_Ficcion_y_Fantasia":
+                    case "ciencia_ficcion_y_fantasia":
                         return 10765;
                         break;
-                    case "Telenovelas":
+                    case "telenovelas":
                         return 10766;
                         break;
-                    case "Talk_Show":
+                    case "talk_show":
                         return 10767;
                         break;
-                    case "Guerra_y_Politica":
+                    case "guerra_y_politica":
                         return 10768;
                         break;
-                    case "Western":
+                    case "western":
                         return 37;
                         break;
                 }
             break;
         case "movie":
                 switch (genere) {
-                    case "Accion":
+                    case "accion":
                         return 28;
-                    case "Aventura":
+                    case "aventura":
                         return 12;
                         break;
-                    case "Animacion":
+                    case "animacion":
                         return 16;
                         break;
-                    case "Comedia":
+                    case "comedia":
                         return 35;
                         break;
-                    case "Crimen":
+                    case "crimen":
                         return 80;
                         break;
-                    case "Documental":
+                    case "documental":
                         return 99;
                         break;
-                    case "Drama":
+                    case "drama":
                         return 18;
                         break;
-                    case "Familia":
+                    case "familia":
                         return 10751;
                         break;
-                    case "Fantasia":
+                    case "fantasia":
                         return 14;
                         break;
-                    case "Historia":
+                    case "historia":
                         return 36;
                         break;
-                    case "Terror":
+                    case "terror":
                         return 27;
                         break;
-                    case "Musical":
+                    case "musical":
                         return 10402;
                         break;
-                    case "Misterio":
+                    case "misterio":
                         return 9648;
                         break;
-                    case "Romance":
+                    case "romance":
                         return 10749;
                         break;
-                    case "Ciencia_Ficcion":
+                    case "ciencia_ficcion":
                         return 878;
                         break;
                     
-                    case "TV_movie":
+                    case "tv_movie":
                         return 10770;
                         break;
-                    case "Suspenso":
+                    case "suspenso":
                         return 53;
                         break;
-                    case "Guerra":
+                    case "guerra":
                         return 10752;
                         break;
-                    case "Western":
+                    case "western":
                         return 37;
                         break;
                 }
             break;
+    }
+}
+
+export const get_Index_Of_Last_Array_Element = (array)=>{
+    return array.length - 1;
+}
+
+export const convert_Url_To_Array = (url)=>{
+    if (url.charAt(0) == "/" ) {
+        return url.substring(1).split("/")
+    }else {
+        console.log(url.substring.split("/"))
+        return url.split("/")
     }
 }
