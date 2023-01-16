@@ -125,6 +125,7 @@ export default function Home() {
                   <Estrenos
                     imgCover={data.poster_path}
                     title={data.title}
+                    voteStar={data.vote_average}
                     id={data.id}
                     key={index}
                   />

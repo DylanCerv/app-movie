@@ -29,20 +29,32 @@
  * @param {String} pathname URL de la pagina en donde esta parado
  * @returns String - El nombre de la pagina para poder llamar los datos en la API
  */
-export const identifyPage = (pathname) => {
+export const identifyPage = (pathname, arrayURL) => {
     switch (pathname) {
-      case "movies":
-        return "movie";
-        break;
-      case "tv":
-        return "tv";
-        break;
-    case "genero":
-        return "gener";
-        break;
-      default:
-        return false; // indica que debera buscar este valor tanto en las peliculas como en las series
-        break;
+        case "/search/movies":
+            return "movie";
+            break;
+        case "/search/tv":
+            return "tv";
+            break;
+        case "/movie/popular":
+            return "movie/popular";
+            break;
+        case "/movie/top_rated":
+            return "movie/top_rated";
+            break;
+        case "/tv/popular":
+            return "tv/popular";
+            break;
+        case "/tv/top_rated":
+            return "tv/top_rated";
+            break;
+        case "genero":
+            return "gener";
+            break;
+        default:
+            return false; // indica que debera buscar este valor tanto en las peliculas como en las series
+            break;
     }
 };
 
@@ -56,7 +68,7 @@ export const identifyPage = (pathname) => {
  * @param {String} language El idioma en que se van a traer los datos de la API, ejemplo: en-US, es-MX, es-ES, etc... (opcional)
  * @returns {Array} Este array se va a usar en el primer parametro de la funcion useQuery()
  */
-export const convert_In_Array_To_API = (nameReactQuery, typeSearch, searchAPI, page=1, otherVarsGETs='&sort_by=popularity.desc', language='es-ES')=>{
+export const convert_In_Array_To_API = (nameReactQuery, typeSearch, searchAPI, page=1, otherVarsGETs='&sort_by=popularity.desc', language='es-MX')=>{
     return [nameReactQuery, typeSearch, searchAPI, page, language, otherVarsGETs];
 }
 

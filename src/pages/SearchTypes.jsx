@@ -7,7 +7,6 @@ import Card from "../Components/Individuals/card/card";
 import { identifyPage } from "../utils/help";
 import { useEffect } from "react";
 import Loader from "../Components/Individuals/Loader/Loader";
-import { genresTV, genresMovies } from "../utils/generos";
 import {
   searchGenere,
   get_Index_Of_Last_Array_Element,
@@ -53,35 +52,41 @@ const VariablesGET = (
   indexLastQuery,
   searchGenere
 ) => {
-  if (!verifySendGET) {
+  if (verifySendGET) {
+    return verifySendGET;
+  } else {
     if (datosTraer == "gener") {
       const idGenero = searchGenere(query[1], query[indexLastQuery]);
       return `&with_genres=${idGenero}`;
     } else {
       return verifySendGET;
     }
-  } else {
-    return verifySendGET;
   }
 };
 
 export default function SearchTypes() {
   let dataOBJ;
   let ruta;
+
   const { pathname } = useLocation();
   const query = convert_Url_To_Array(pathname);
   const indexLast = get_Index_Of_Last_Array_Element(query);
 
+  /* Identifica si es la ruta para buscar generos */
   if (query.length > 2) {
     ruta = query[0];
   } else {
-    ruta = query[indexLast];
+    ruta = pathname;
   }
 
-  const datosTraer = identifyPage(ruta);
-  const verifySearch = datosTraer ? "discover" : "search";
+  const datosTraer = identifyPage(ruta, query);
+  let verifySearch = datosTraer ? "discover" : "search";
   const verifySearchData = datosTraer ? datosTraer : "multi";
   const verifySendGET = datosTraer ? "" : "&query=" + query[1];
+
+  if (query[1] == "popular" || query[1] == "top_rated") {
+    verifySearch = "";
+  }
 
   const TypeSearch = TypeSearchFunction(verifySearchData, query, indexLast);
   const VarsGET = VariablesGET(
@@ -91,9 +96,10 @@ export default function SearchTypes() {
     indexLast,
     searchGenere
   );
+
   const {
     data,
-    error,
+    isError,
     status,
     isLoading,
     refetch,

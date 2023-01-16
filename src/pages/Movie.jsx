@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import ReactPlayer from "react-player/youtube";
 import { Link } from "react-router-dom";
@@ -15,9 +15,13 @@ export default function Movie() {
   const { pathname } = useLocation();
 
   const arrayURL = convert_Url_To_Array(pathname);
-  const movie = convert_In_Array_To_API("movie", arrayURL[0], `${id}`);
-  const movie_Credits = convert_In_Array_To_API("credits", arrayURL[0], `${id}/credits`);
-  const movie_Videos = convert_In_Array_To_API("videos", arrayURL[0], `${id}/videos`);
+  let movie = convert_In_Array_To_API("movie", arrayURL[0], `${id}`);
+  let movie_Credits = convert_In_Array_To_API("credits", arrayURL[0], `${id}/credits`);
+  let movie_Videos = convert_In_Array_To_API("videos", arrayURL[0], `${id}/videos`);
+
+  if (arrayURL[0] == 'tv') {
+    movie_Videos[4] = 'en-US';
+  }
 
   const {
     data: data_Credits,
@@ -45,9 +49,12 @@ export default function Movie() {
   }
 
   const principals = data_Credits && data_Credits.cast.slice(0, 10);
+  // console.log(data_Credits.cast.length);
+  // console.log(principals.length);
   // console.log('credits', data_Credits);
   // console.log('movie', data_Movie);
   // console.log('video', data_Videos);
+
 
   return (
     <>
@@ -126,33 +133,38 @@ export default function Movie() {
                 <h1 className="text-2xl uppercase">Sipnosis</h1>
                 <p>{data_Movie.overview}</p>
               </div>
-              <h1 className="text-2xl uppercase">Trailer</h1>
-              <ReactPlayer
-                className="flex justify-center"
-                url={`https://www.youtube.com/watch?v=${
-                    arrayURL[0] == 'tv' ?
-                      !data_Videos ? data_Videos.results[0].key : ""
-                    :
-                      data_Videos ? data_Videos.results[0].key : ""
-                  }`}
-                playing={true}
-                controls={false}
-                width={"auto"}
-              />
+              {data_Videos && data_Videos.results[0] ?
+                <>
+                  <h1 className="text-2xl uppercase">Video Principal</h1>
+                  <ReactPlayer
+                    className="flex justify-center"
+                    url={`https://www.youtube.com/watch?v=${data_Videos.results[0].key}`}
+                    playing={true}
+                    controls={false}
+                    width={"auto"}
+                  />
+                </>
+               : ""
+              }
             </div>
           </div>      
           </div>
-          <div className="bg-white px-10 py-10 text-black-text flex flex-wrap justify-between gap-10">
-            {
-              principals.map((data, index)=>(
-                <PerfilPerson
-                  name={data.name}
-                  img={data.profile_path}
-                  id={data.credit_id}
-                  key={index}
-                />
-              ))
-            }
+          <div className="bg-white px-10 py-10 text-black-text flex flex-col gap-5">
+            <div className="flex flex-wrap justify-between gap-10">
+              {
+                principals.map((data, index)=>(
+                  <PerfilPerson
+                    name={data.name}
+                    img={data.profile_path}
+                    id={data.credit_id}
+                    key={index}
+                  />
+                ))
+              }
+            </div>
+            <div className="mx-auto border-4 hover:border-yellow-text hover:text-yellow-text rounded-md">
+              <Link to={`/creditos/${id}/${arrayURL[0]}`} className="mx-5 mt-2 hover:text-yellow-text font-bold">Ver Mas</Link>
+            </div>
           </div>
         </div>
       }

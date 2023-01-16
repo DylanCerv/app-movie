@@ -11,14 +11,15 @@ const key_api = import.meta.env.VITE_API_KEY;
  */
 export const getData = async(info)=>{
     try {
-        // console.log(info)
         const queryKey = info.queryKey
-
+        
         const typeSearch = queryKey[1]
         const datosTraer = queryKey[2]
         const n_page = queryKey[3]
         const language = queryKey[4]
         const otherGETs = queryKey[5]
+        // console.log(`${URL_api}/${typeSearch}/${datosTraer}?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`)
+        // return
         const response = await axios.get(`${URL_api}/${typeSearch}/${datosTraer}?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`);
         return response.data;
     } catch (error) {
@@ -34,13 +35,12 @@ export const getData = async(info)=>{
  */
 export const getDataTrending = async(info)=>{
     try {
-        // console.log(info)
         const queryKey = info.queryKey
-
+        
         const language = queryKey[1]
         const n_page = queryKey[2]
         const otherGETs = queryKey[3]
-
+        
         const response = await axios.get(`${URL_api}/trending/all/day?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`);
         return response.data;
     } catch (error) {
@@ -60,8 +60,6 @@ export const getDataTrending = async(info)=>{
  */
 export const getDataInfinity = async(typeSearch, datosTraer, n_page, otherGETs='', language='es-ES')=>{
     try {
-        // console.log(`${URL_api}/${typeSearch}/${datosTraer}?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`)
-        // return
         const response = await axios.get(`${URL_api}/${typeSearch}/${datosTraer}?api_key=${key_api}&language=${language}&page=${n_page}${otherGETs}`);
         return response.data;
     } catch (error) {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
+import Credits from "./pages/Credits";
 import Home from "./pages/Home";
 import Movie from "./pages/Movie";
 import Person from "./pages/Person";
@@ -23,7 +24,11 @@ function App() {
           {/* Rutas de peliculas y serie individual */}
           <Route path="/movie/:id" element={<Movie />} />
           <Route path="/tv/:id" element={<Movie />} />
-          
+
+          {/* Rutas de creditos */}
+          <Route path="/creditos/:id/movie" element={<Credits />} />
+          <Route path="/creditos/:id/tv" element={<Credits />} />
+
           {/* Rutas del perfil de la persona */}
           <Route path="/person/:id" element={<Person />} />
           
