@@ -22,7 +22,7 @@ export default function Card({ title, imgCover, stars, date, type, id }) {
           />{" "}
           <span>{voteAverageFilm(stars)}</span>
         </div>
-        <Link to={`/movie/${id}`}>
+        <Link to={`/${type}/${id}`}>
           <h3 className="text-base tituloCard hover:text-[var(--yellow)]">{title}</h3>
         </Link>
         <div className="w-full px-[10%]">

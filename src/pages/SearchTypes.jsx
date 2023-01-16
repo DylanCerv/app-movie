@@ -67,6 +67,7 @@ const VariablesGET = (
 export default function SearchTypes() {
   let dataOBJ;
   let ruta;
+  let type;
 
   const { pathname } = useLocation();
   const query = convert_Url_To_Array(pathname);
@@ -120,6 +121,8 @@ export default function SearchTypes() {
     refetch();
   }, [pathname]);
 
+  console.log(dataOBJ);
+
   return (
     <>
       {dataOBJ ? (
@@ -138,7 +141,7 @@ export default function SearchTypes() {
                     stars={data.vote_average}
                     imgCover={data.poster_path}
                     date={data.release_date}
-                    type="tv"
+                    type={TypeSearch}
                     id={data.id}
                     key={index}
                   />
