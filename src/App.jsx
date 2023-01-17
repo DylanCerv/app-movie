@@ -7,6 +7,8 @@ import Movie from "./pages/Movie";
 import Person from "./pages/Person";
 import Search from "./pages/Search";
 import SearchTypes from "./pages/SearchTypes";
+import Video from "./pages/Video";
+import Img from "./pages/Img";
 
 function App() {
   return (
@@ -24,6 +26,10 @@ function App() {
           {/* Rutas de peliculas y serie individual */}
           <Route path="/movie/:id" element={<Movie />} />
           <Route path="/tv/:id" element={<Movie />} />
+
+          {/* Rutas de videos e imagenes */}
+          <Route path="/videos/:id/:type" element={<Video />} />
+          <Route path="/imgenes/:id/:type" element={<Img />} />
 
           {/* Rutas de creditos */}
           <Route path="/creditos/:id/movie" element={<Credits />} />

@@ -68,7 +68,7 @@ export const identifyPage = (pathname, arrayURL) => {
  * @param {String} language El idioma en que se van a traer los datos de la API, ejemplo: en-US, es-MX, es-ES, etc... (opcional)
  * @returns {Array} Este array se va a usar en el primer parametro de la funcion useQuery()
  */
-export const convert_In_Array_To_API = (nameReactQuery, typeSearch, searchAPI, page=1, otherVarsGETs='&sort_by=popularity.desc', language='es-MX')=>{
+export const convert_In_Array_To_API = (nameReactQuery, typeSearch, searchAPI, page=1, otherVarsGETs='&sort_by=popularity.desc', language='es-ES')=>{
     return [nameReactQuery, typeSearch, searchAPI, page, language, otherVarsGETs];
 }
 

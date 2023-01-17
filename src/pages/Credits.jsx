@@ -1,13 +1,11 @@
 import React from 'react'
 import { useQuery } from 'react-query';
 import { useLocation, useParams } from 'react-router-dom';
-import PerfilPerson from '../Components/Individuals/PerfilPerson/PerfilPerson';
 import { getData } from '../utils/api';
 import { convert_In_Array_To_API, convert_Url_To_Array } from '../utils/help';
 import Loader from '../Components/Individuals/Loader/Loader';
-import GridToPerson from '../Components/Individuals/GridToPerson/GridToPerson';
 import SectionPersonCredits from '../Components/Individuals/SectionPersonCredits.jsx/SectionPersonCredits';
-import GridNoIMG from '../Components/Individuals/GridToPerson/GridNoIMG';
+import PaddingX from '../Components/Layout/PaddingX';
 
   /**
    * Filtra los datos que hay en la API
@@ -146,157 +144,159 @@ export default function Credits() {
     <>
       {status_Credits == "success" ?
         <div className='px-2 bg-white text-black font-bold text-3xl'>
-          <div className='flex flex-col gap-3'>
-            {cast &&
-              <>
-                <h1 className='text-black text-center'>Cast</h1>
+          <PaddingX>
+            <div className='flex flex-col gap-3 mb-16'>
+              {cast &&
                 <>
-                  {/**********************************************
-                                      ACTORES 
-                  **********************************************/}
-                  <SectionPersonCredits
-                    title={'ACTORES'}
-                    whitIMG={img_cast_Acting}
-                    whitoutIMG={whitout_img_cast_Acting}
-                  />
-                  
-                  {/**********************************************
-                                      PRODUCCION 
-                  **********************************************/}
-                  <SectionPersonCredits
-                    title={'PRODUCCION'}
-                    whitIMG={img_cast_Production}
-                    whitoutIMG={whitout_img_cast_Production}
-                  />
-                  
-                  {/**********************************************
-                                      CREW 
-                  **********************************************/}
-                  <SectionPersonCredits
-                    title={'PRODUCCION'}
-                    whitIMG={img_cast_Crew}
-                    whitoutIMG={whitout_img_cast_Crew}
-                  />
-                  
-                  {/**********************************************
-                                      DIRECCION 
-                  **********************************************/}
-                  <SectionPersonCredits
-                    title={'PRODUCCION'}
-                    whitIMG={img_cast_Directing}
-                    whitoutIMG={whitout_img_cast_Directing}
-                  />
-                    
-                  {/**********************************************
-                                      EDICION 
-                  **********************************************/}
-                  <SectionPersonCredits
-                    title={'PRODUCCION'}
-                    whitIMG={img_cast_Editing}
-                    whitoutIMG={whitout_img_cast_Editing}
-                  />
-                  
-                  {/**********************************************
-                                      WRITTING 
-                  **********************************************/}
-                  <SectionPersonCredits
-                    title={'PRODUCCION'}
-                    whitIMG={img_cast_Writing}
-                    whitoutIMG={whitout_img_cast_Writing}
-                  />
-                </>
-              </>
-            }
-          </div>
-          <div className='flex flex-col gap-3'>
-            {crew &&
-                <>
-                  <h1 className='text-black text-center'>Crew</h1>
+                  <h1 className='text-black text-center'>Cast</h1>
                   <>
-                    {/**********************************************
-                                        PRODUCCION 
-                    **********************************************/}
-                    <SectionPersonCredits
-                      title={'PRODUCCION'}
-                      whitIMG={img_crew_Production}
-                      whitoutIMG={whitout_img_crew_Production}
-                    />
-                    
                     {/**********************************************
                                         ACTORES 
                     **********************************************/}
                     <SectionPersonCredits
                       title={'ACTORES'}
-                      whitIMG={img_crew_Acting}
-                      whitoutIMG={whitout_img_crew_Acting}
+                      whitIMG={img_cast_Acting}
+                      whitoutIMG={whitout_img_cast_Acting}
                     />
                     
                     {/**********************************************
-                                        DIRECCION 
+                                        PRODUCCION 
                     **********************************************/}
                     <SectionPersonCredits
-                      title={'DIRECCION'}
-                      whitIMG={img_crew_Directing}
-                      whitoutIMG={whitout_img_crew_Directing}
-                    />
-                    
-                    {/**********************************************
-                                        EFFECTOS VISUAL 
-                    **********************************************/}
-                    <SectionPersonCredits
-                      title={'EFFECTOS VISUAL'}
-                      whitIMG={img_crew_EffectVisual}
-                      whitoutIMG={whitout_img_crew_EffectVisual}
-                    />
-                    
-                    {/**********************************************
-                                        SONIDO 
-                    **********************************************/}
-                    <SectionPersonCredits
-                      title={'SONIDO'}
-                      whitIMG={img_crew_Sound}
-                      whitoutIMG={whitout_img_crew_Sound}
-                    />
-                    
-                    {/**********************************************
-                                        ART 
-                    **********************************************/}
-                    <SectionPersonCredits
-                      title={'ART'}
-                      whitIMG={img_crew_Art}
-                      whitoutIMG={whitout_img_crew_Art}
+                      title={'PRODUCCION'}
+                      whitIMG={img_cast_Production}
+                      whitoutIMG={whitout_img_cast_Production}
                     />
                     
                     {/**********************************************
                                         CREW 
                     **********************************************/}
                     <SectionPersonCredits
-                      title={'CREW'}
-                      whitIMG={img_crew_Crew}
-                      whitoutIMG={whitout_img_crew_Crew}
+                      title={'PRODUCCION'}
+                      whitIMG={img_cast_Crew}
+                      whitoutIMG={whitout_img_cast_Crew}
+                    />
+                    
+                    {/**********************************************
+                                        DIRECCION 
+                    **********************************************/}
+                    <SectionPersonCredits
+                      title={'PRODUCCION'}
+                      whitIMG={img_cast_Directing}
+                      whitoutIMG={whitout_img_cast_Directing}
                     />
                       
                     {/**********************************************
                                         EDICION 
                     **********************************************/}
                     <SectionPersonCredits
-                      title={'EDICION'}
-                      whitIMG={img_crew_Editing}
-                      whitoutIMG={whitout_img_crew_Editing}
+                      title={'PRODUCCION'}
+                      whitIMG={img_cast_Editing}
+                      whitoutIMG={whitout_img_cast_Editing}
                     />
                     
                     {/**********************************************
                                         WRITTING 
                     **********************************************/}
                     <SectionPersonCredits
-                      title={'WRITTING'}
-                      whitIMG={img_crew_Writing}
-                      whitoutIMG={whitout_img_crew_Writing}
+                      title={'PRODUCCION'}
+                      whitIMG={img_cast_Writing}
+                      whitoutIMG={whitout_img_cast_Writing}
                     />
                   </>
                 </>
               }
-          </div>
+            </div>
+            <div className='flex flex-col gap-3 mb-16'>
+              {crew &&
+                  <>
+                    <h1 className='text-black text-center'>Crew</h1>
+                    <>
+                      {/**********************************************
+                                          PRODUCCION 
+                      **********************************************/}
+                      <SectionPersonCredits
+                        title={'PRODUCCION'}
+                        whitIMG={img_crew_Production}
+                        whitoutIMG={whitout_img_crew_Production}
+                      />
+                      
+                      {/**********************************************
+                                          ACTORES 
+                      **********************************************/}
+                      <SectionPersonCredits
+                        title={'ACTORES'}
+                        whitIMG={img_crew_Acting}
+                        whitoutIMG={whitout_img_crew_Acting}
+                      />
+                      
+                      {/**********************************************
+                                          DIRECCION 
+                      **********************************************/}
+                      <SectionPersonCredits
+                        title={'DIRECCION'}
+                        whitIMG={img_crew_Directing}
+                        whitoutIMG={whitout_img_crew_Directing}
+                      />
+                      
+                      {/**********************************************
+                                          EFFECTOS VISUAL 
+                      **********************************************/}
+                      <SectionPersonCredits
+                        title={'EFFECTOS VISUAL'}
+                        whitIMG={img_crew_EffectVisual}
+                        whitoutIMG={whitout_img_crew_EffectVisual}
+                      />
+                      
+                      {/**********************************************
+                                          SONIDO 
+                      **********************************************/}
+                      <SectionPersonCredits
+                        title={'SONIDO'}
+                        whitIMG={img_crew_Sound}
+                        whitoutIMG={whitout_img_crew_Sound}
+                      />
+                      
+                      {/**********************************************
+                                          ART 
+                      **********************************************/}
+                      <SectionPersonCredits
+                        title={'ART'}
+                        whitIMG={img_crew_Art}
+                        whitoutIMG={whitout_img_crew_Art}
+                      />
+                      
+                      {/**********************************************
+                                          CREW 
+                      **********************************************/}
+                      <SectionPersonCredits
+                        title={'CREW'}
+                        whitIMG={img_crew_Crew}
+                        whitoutIMG={whitout_img_crew_Crew}
+                      />
+                        
+                      {/**********************************************
+                                          EDICION 
+                      **********************************************/}
+                      <SectionPersonCredits
+                        title={'EDICION'}
+                        whitIMG={img_crew_Editing}
+                        whitoutIMG={whitout_img_crew_Editing}
+                      />
+                      
+                      {/**********************************************
+                                          WRITTING 
+                      **********************************************/}
+                      <SectionPersonCredits
+                        title={'WRITTING'}
+                        whitIMG={img_crew_Writing}
+                        whitoutIMG={whitout_img_crew_Writing}
+                      />
+                    </>
+                  </>
+                }
+            </div>
+          </PaddingX>
         </div>
         : ""
       }

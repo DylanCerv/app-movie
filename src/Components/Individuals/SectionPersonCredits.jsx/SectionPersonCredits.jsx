@@ -8,7 +8,7 @@ export default function SectionPersonCredits({title, whitoutIMG, whitIMG}) {
     <>
         {whitIMG.length > 0 || whitoutIMG.length > 0 ?
             <>
-                <h2 className='text-xl text-black'>{title}</h2>
+                <h2 className='text-xl text-black mt-5'>{title}</h2>
                 <GridToPerson>
                     {
                         whitIMG.map((data, index)=>(

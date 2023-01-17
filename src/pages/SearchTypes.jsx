@@ -12,6 +12,7 @@ import {
   get_Index_Of_Last_Array_Element,
   convert_Url_To_Array,
 } from "../utils/help";
+import PaddingX from "../Components/Layout/PaddingX";
 
 /**
  * Se utiliza en getNextPageParam de useInfiniteQuery() para traer la siguiente pagina de la API
@@ -126,29 +127,31 @@ export default function SearchTypes() {
   return (
     <>
       {dataOBJ ? (
-        <InfiniteScroll
-          dataLength={dataOBJ.length}
-          hasMore={hasNextPage}
-          next={() => fetchNextPage()}
-          loader={"..."}
-        >
-          <div className="flex flex-wrap justify-center gap-2">
-            {dataOBJ &&
-              dataOBJ.map((data, index) => (
-                <div className="w-[8rem] lg:w-[10rem]" key={index}>
-                  <Card
-                    title={data.title ? data.title : data.name}
-                    stars={data.vote_average}
-                    imgCover={data.poster_path}
-                    date={data.release_date}
-                    type={TypeSearch}
-                    id={data.id}
-                    key={index}
-                  />
-                </div>
-              ))}
-          </div>
-        </InfiniteScroll>
+        <PaddingX>
+          <InfiniteScroll
+            dataLength={dataOBJ.length}
+            hasMore={hasNextPage}
+            next={() => fetchNextPage()}
+            loader={"..."}
+          >
+            <div className="flex flex-wrap justify-center gap-2">
+              {dataOBJ &&
+                dataOBJ.map((data, index) => (
+                  <div className="w-[8rem] lg:w-[10rem]" key={index}>
+                    <Card
+                      title={data.title ? data.title : data.name}
+                      stars={data.vote_average}
+                      imgCover={data.poster_path}
+                      date={data.release_date}
+                      type={TypeSearch}
+                      id={data.id}
+                      key={index}
+                    />
+                  </div>
+                ))}
+            </div>
+          </InfiniteScroll>
+        </PaddingX>
       ) : (
         <Loader />
       )}

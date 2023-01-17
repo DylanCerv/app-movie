@@ -16,6 +16,7 @@ import { settingsCine, settingsCarrunselVertical } from "../utils/sliderSettings
 import { useQuery } from "react-query";
 import { convert_In_Array_To_API } from "../utils/help";
 import { getData, getDataTrending } from "../utils/api";
+import PaddingX from "../Components/Layout/PaddingX";
 
 export default function Home() {
   const NowPlayingMovies = convert_In_Array_To_API("nowPlayingMovies", "movie", "now_playing");
@@ -94,7 +95,7 @@ export default function Home() {
   }
 
   return (
-    <div className="p-2 md:px-10 lg:px-20">
+    <PaddingX>
       <section
         className="max-w-[1200px] xl:w-screen h-full mx-auto flex flex-col justify-center gap-1 border-transparent m-0 pt-1 lg:flex-row"
       >
@@ -218,6 +219,6 @@ export default function Home() {
             />
         </Carrusel>
       </HomeCarruselLayout>
-    </div>
+    </PaddingX>
   );
 }
