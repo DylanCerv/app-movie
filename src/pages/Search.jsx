@@ -7,8 +7,8 @@ import CardSearchPerson from '../Components/Individuals/CardSearch/CardSearchPer
 import LinkSeeMore from '../Components/Individuals/LinkSeeMore/LinkSeeMore';
 import ResultSearchLayout from '../Components/Layout/ResultSearchLayout';
 
-import QMoviesJSON from "./../utils/dataTest/Q.json";
-import QPersonsJSON from "./../utils/dataTest/Person.json";
+// import QMoviesJSON from "./../utils/dataTest/Q.json";
+// import QPersonsJSON from "./../utils/dataTest/Person.json";
 import { useLocation } from "react-router-dom";
 import { useQuery } from 'react-query';
 import { convert_In_Array_To_API } from '../utils/help';
@@ -20,24 +20,30 @@ import PaddingX from '../Components/Layout/PaddingX';
 export default function Search() {
   const navigate = useNavigate();
   const [dataGET, setDataGET] = useState(undefined);
-  // const { search } = useLocation();
-  const { q } = getQuery_GETVariable(['q']);
 
+  
+  const { q } = getQuery_GETVariable(['q']);
   const dataSearch = convert_In_Array_To_API("dataSearch", "search", "multi", 1, `&query=${q}`);
+  const dataSearchPerson = convert_In_Array_To_API("dataSearchPerson", "search", "person", 1, `&query=${q}`);
 
   const {
-    data,
-    error,
-    isLoading,
-    status,
+    data: data_Data,
+    error: error_Data,
+    isLoading: isLoading_Data,
+    status: status_Data,
   } = useQuery(dataSearch, getData);
 
+  const {
+    data: data_Person,
+    error: error_Person,
+    isLoading: isLoading_Person,
+    status: status_Person,
+  } = useQuery(dataSearchPerson, getData);
 
   useEffect(()=>{
       const { q } = getQuery_GETVariable(['q']);
       q ? setDataGET(q) : setDataGET(false);
   },[])
-
   useEffect(()=>{
     if (dataGET === false && dataGET !== undefined) {
       navigate('/');
@@ -50,7 +56,7 @@ export default function Search() {
   },[dataGET])
 
 
-  if (isLoading) {
+  if (isLoading_Data && isLoading_Person) {
     return <Loader></Loader>;
   }
 
@@ -63,8 +69,8 @@ export default function Search() {
             <h1 className='text-3xl'>Buscar «{q}» </h1>
           </div>
           <ResultSearchLayout title={`Titulos`}>
-            {
-              data.results.map((data, index)=>(
+            {data_Data &&
+              data_Data.results.map((data, index)=>(
                   <CardSearchMovie 
                     title={data.title ? data.title : data.name}
                     date={data.release_date}
@@ -76,11 +82,11 @@ export default function Search() {
                   />
               ))
             }
-            { data.total_pages > 1 && <LinkSeeMore q={q} />}
+            { data_Data.total_pages > 1 && <LinkSeeMore url={`/search/`+q} />}
           </ResultSearchLayout>
           <ResultSearchLayout title={`Personas`}>
-            {
-              QPersonsJSON.results.map((data, index)=>(
+            {data_Person &&
+              data_Person.results.map((data, index)=>(
                 <CardSearchPerson 
                   name={data.name}
                   department={data.known_for_department}
@@ -91,7 +97,9 @@ export default function Search() {
                 />
               ))
             }
-            { QPersonsJSON.total_pages > 1 && <LinkSeeMore />}
+            {data_Person &&
+              data_Person.total_pages > 1 && <LinkSeeMore url={`/person/`+q} />
+            }
           </ResultSearchLayout>
         </div>
       }

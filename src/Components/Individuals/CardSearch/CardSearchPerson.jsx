@@ -8,7 +8,7 @@ export default function CardSearchPerson({name, popularity, imgPerfil, departmen
         <img className='h-[8rem] rounded-full' src={`https://image.tmdb.org/t/p/w200${imgPerfil}`} alt="" />
         <div className='text-base'>
             <h4>{name}</h4>
-            <p>Departamento: <span>{department}</span></p>
+            <p>{department}</p>
             <p className='flex flex-row gap-2 text-base'>
                 <img className='w-3' src="/src/assets/svg/star.svg" alt="" />
                 <span>{popularity}</span>
