@@ -15,6 +15,8 @@ import { convert_In_Array_To_API } from '../utils/help';
 import { getData } from '../utils/api';
 import Loader from '../Components/Individuals/Loader/Loader';
 
+import PaddingX from '../Components/Layout/PaddingX';
+
 export default function Search() {
   const navigate = useNavigate();
   const [dataGET, setDataGET] = useState(undefined);
@@ -51,10 +53,9 @@ export default function Search() {
   if (isLoading) {
     return <Loader></Loader>;
   }
-  console.log(data)
 
   return (
-    <>
+    <PaddingX>
       {
       dataGET &&
         <div className='flex flex-col gap-2'>
@@ -94,6 +95,6 @@ export default function Search() {
           </ResultSearchLayout>
         </div>
       }
-    </>
+    </PaddingX>
   )
 }

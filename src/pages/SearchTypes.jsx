@@ -122,7 +122,7 @@ export default function SearchTypes() {
     refetch();
   }, [pathname]);
 
-  console.log(dataOBJ);
+  // console.log(dataOBJ);
 
   return (
     <>
