@@ -238,7 +238,6 @@ export const searchGenere = (genere, type)=>{
                     case "ciencia_ficcion":
                         return 878;
                         break;
-                    
                     case "tv_movie":
                         return 10770;
                         break;
