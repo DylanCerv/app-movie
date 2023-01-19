@@ -17,7 +17,7 @@ export default function CardTV({ title, imgCover, stars, type, language, id }) {
         <div className="flex flex-row gap-2">
           <img
             className="porcent20 estrella"
-            src="/src/assets/svg/star.svg"
+            src="https://res.cloudinary.com/dnnjctymr/image/upload/v1674087038/projects/data-Fmovies/svg/star_s22d15.svg"
             alt=""
           />{" "}
           <span>{voteAverageFilm(stars)}</span>

@@ -10,7 +10,7 @@ export default function CardSearchPerson({name, popularity, imgPerfil, departmen
             <h4>{name}</h4>
             <p>{department}</p>
             <p className='flex flex-row gap-2 text-base'>
-                <img className='w-3' src="/src/assets/svg/star.svg" alt="" />
+                <img className='w-3' src="https://res.cloudinary.com/dnnjctymr/image/upload/v1674087038/projects/data-Fmovies/svg/star_s22d15.svg" alt="" />
                 <span>{popularity}</span>
             </p>
         </div>

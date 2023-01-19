@@ -81,7 +81,7 @@ export default function Movie() {
                       <div className="flex flex-col">
                         <div className="text-lg font-bold flex flex-row gap-2 justify-center">
                           <div className="flex flex-row">
-                            <img className="w-4" src="/src/assets/svg/star.svg" alt="" />
+                            <img className="w-4" src="https://res.cloudinary.com/dnnjctymr/image/upload/v1674087038/projects/data-Fmovies/svg/star_s22d15.svg" alt="" />
                             <div className="flex flex-row">
                               {voteAverageFilm(data_Movie.vote_average)}{" "}
                               <div className="opacity-[60%]">/10</div>
@@ -125,14 +125,14 @@ export default function Movie() {
                           id={id}
                           type={arrayURL[0]}
                           name={'Vídeos'}
-                          imgIcon={`/src/assets/svg/iconVideo.svg`}
+                          imgIcon={`https://res.cloudinary.com/dnnjctymr/image/upload/v1674087036/projects/data-Fmovies/svg/iconVideo_lt8lmi.svg`}
                         />
                         <BTNMedia_Movie
                           media={`imagenes`}
                           id={id}
                           type={arrayURL[0]}
                           name={'Imagenes'}
-                          imgIcon={`/src/assets/svg/iconImg.svg`}
+                          imgIcon={`https://res.cloudinary.com/dnnjctymr/image/upload/v1674087036/projects/data-Fmovies/svg/iconImg_iw6p5v.svg`}
                         />
                       </div>
                       <h1 className="text-2xl uppercase">Sipnosis</h1>

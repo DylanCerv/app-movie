@@ -10,7 +10,7 @@ export default function CardSearchMovie({title, date, vote_average, imgCover, ty
             <h4>{title}</h4>
             <p className='text-base'>{date}</p>
             <p className='flex flex-row gap-2 text-base'>
-                <img className='w-3' src="/src/assets/svg/star.svg" alt="" />
+                <img className='w-3' src="https://res.cloudinary.com/dnnjctymr/image/upload/v1674087038/projects/data-Fmovies/svg/star_s22d15.svg" alt="" />
                 <span>{vote_average}</span>
             </p>
             <p className='text-sm mt-2'>{type == 'tv' ? 'Serie TV' : 'Pelicula' }</p>

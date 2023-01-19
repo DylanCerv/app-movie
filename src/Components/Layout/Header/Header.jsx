@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import "./Header.css"
 import { Link, useNavigate } from 'react-router-dom';
+import "./Header.css"
 
 export default function Header() {
   const navigate = useNavigate();
@@ -34,8 +34,8 @@ export default function Header() {
               </path>
             </svg>
           </div>
-          <Link to={`/`} id='logo'>
-              <img className='w-20' src="/src/assets/svg/logo.svg" alt="" />
+          <Link to={`/`} id='logo' className='md:w-20 md:mr-5'>
+              <img src="https://res.cloudinary.com/dnnjctymr/image/upload/v1674088162/projects/data-Fmovies/svg/logo_e1vqga.svg" alt="" />
           </Link>
           <ul className={`hidden ${activeHamburger && 'listHamburgerActive'}  md:flex gap-2 lg:flex-row md:gap-10 font-semibold links`} id='options'>
             <li><Link to={`/movie/popular`} className={`hover:text-yellow-text`}>Popular</Link></li>
@@ -161,8 +161,8 @@ export default function Header() {
           </ul>
         </div>
         <form className='w-auto my-auto md:pr-10 md:w-[50%]' onSubmit={handleSubmit}>
-            <input className='search relative pl-[7rem !important] w-full h-8' type="text" name="search" id="search" placeholder='Enter your key words...' />
-            <img className='absolute top-[1.45rem] pl-[.6rem]' src="/src/assets/svg/search.svg" alt="" />
+            <input className='search relative pl-[7rem !important] w-full h-8' type="text" name="search" id="search" placeholder='Ingresa tu busqueda' />
+            <img className='absolute top-[1.45rem] pl-[.6rem]' src="https://res.cloudinary.com/dnnjctymr/image/upload/v1674087038/projects/data-Fmovies/svg/search_apikv9.svg" alt="" />
         </form>
     </header>
   )

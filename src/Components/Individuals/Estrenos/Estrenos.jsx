@@ -16,7 +16,7 @@ export default function Estrenos({ imgCover, id, title, voteStar }) {
           <div className="flex flex-row gap-2">
             <img
               className="w-4 estrella"
-              src="/src/assets/svg/star.svg"
+              src="https://res.cloudinary.com/dnnjctymr/image/upload/v1674087038/projects/data-Fmovies/svg/star_s22d15.svg"
               alt=""
             />{" "}
             <span>{voteAverageFilm(voteStar)}</span>
