@@ -263,7 +263,6 @@ export const convert_Url_To_Array = (url)=>{
     if (url.charAt(0) == "/" ) {
         return url.substring(1).split("/")
     }else {
-        console.log(url.substring.split("/"))
         return url.split("/")
     }
 }
