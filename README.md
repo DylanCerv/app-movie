@@ -8,8 +8,6 @@
     </a></p>
 </div> 
 
-
-
 ## Table of contents
 
 - [About the Project](#about-the-project)
@@ -26,26 +24,21 @@
 
 ## About the Project
 
-Data FMovies es una aplicación web diseñada para mantenerte al día con los últimos estrenos de películas y series, así como para proporcionarte información sobre los actores más destacados. Este proyecto se desarrolló con fines educativos y para practicar el uso de diferentes tecnologías web modernas.
+Data FMovies is a web application designed to keep you up to date with the latest movie and series releases, as well as provide you with information about the most notable actors. This project was developed for educational purposes and to practice using different modern web technologies.
 
 ## 🛠️ Technology Stack
 
- - El framework web para sitios orientados a contenido.
- - JavaScript con sintaxis moderna.
- - Un framework CSS de utilidad para construir diseños personalizados de manera rápida.
- - Herramienta p
-
-- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) - El framework web para sitios orientados a contenido.
-- ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) - JavaScript con sintaxis moderna.
+- ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) - The web framework for content-oriented sites.
+- ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) - JavaScript with modern syntax.
 - ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) - A utility-first CSS framework for rapidly building custom designs.
-- ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white) - 
+- ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white) - Tool for efficient handling of data states in React applications.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- **Node.js**: Necesitarás tener Node.js instalado en tu máquina.
-- **Cuenta en [The Movie DB](https://www.themoviedb.org/)**: Se requiere para obtener la API Key.
+- **Node.js**: You will need to have Node.js installed on your machine.
+- **Account in [The Movie DB](https://www.themoviedb.org/)**: Required to obtain the API Key.
 
 ### Installation
 
@@ -57,7 +50,7 @@ git clone https://github.com/DylanCerv/app-movie.git
 
 2. Install the dependencies:
 
-- Ejcutar el comando de instalacion con [npm](https://www.npmjs.com/)
+- With [npm](https://www.npmjs.com/)
 
 ```bash
 npm install
@@ -75,10 +68,11 @@ pnpm install
 yarn install
 ```
 
-3. Configura las variables de entorno:
-- Crea un archivo en la raíz del proyecto llamado `.env`.
-- Copia las variables de entorno desde el archivo `.env.example`.
-- Asegúrate de agregar la [API Key](https://www.themoviedb.org/settings/api) obtenida de The Movie DB.
+3. Set the environment variables:
+
+- Create a file in the root of the project called `.env`.
+- Copy the environment variables from the `.env.example` file.
+- Make sure to add the [API Key](https://www.themoviedb.org/settings/api) obtained from The Movie DB.
 
 4. Run the development server:
 
@@ -126,7 +120,7 @@ Here's a quick guide:
 6. Push the Branch (`git push origin feature/CaracteristicaIncreible`)
 7. Open a [_pull request_](https://github.com/DylanCerv/app-movie/pulls)
 
-<!-- Por favor, consulta nuestra [guía de contribución](https://github.com/DylanCerv/app-movie/blob/master/CONTRIBUTING.md) para saber cómo puedes empezar de la mejor manera y siguiendo [buenas prácticas](https://github.com/DylanCerv/app-movie/blob/main/CONTRIBUTING.md#buenas-prácticas-). -->
+<!-- Please check out our [contributing guide](https://github.com/DylanCerv/app-movie/blob/master/CONTRIBUTING.md) to learn how you can get started right and by following [good practices](https://github.com/DylanCerv/app-movie/blob/main/CONTRIBUTING.md#good-practices-). -->
 
 ### Contribute via Stackblitz
 
@@ -151,4 +145,4 @@ If you want to contribute in a simpler way, you can start this project from _Sta
 - [ ] Crear pagina de actores/cast/crew/... (creditos)
 - [ ] Mejorar la precarga de las imágenes
 
-<p align="right">(<a href="#readme-top">volver arriba</a>)</p>
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
