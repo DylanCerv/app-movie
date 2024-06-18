@@ -24,7 +24,7 @@ export default function SliderContainer({
     useEffect(() => {
         const fetchSliderData = async () => {
             try {
-                const type = path.includes('movie') ? 'movie' : 'tv';
+                // const type = path.includes('movie') ? 'movie' : 'tv';
                 const query = page ? `language=es-ES&page=${page}` : '';
                 const response = await fetchData(path, query);
                 setData(response.results);
@@ -39,9 +39,9 @@ export default function SliderContainer({
         fetchSliderData();
     }, [path, page]);
 
-    // if (loading) {
-    //     return <div>Loading...</div>;
-    // }
+    if (loading) {
+        return;
+    }
 
     if (error) {
         return <div>{error}</div>;
