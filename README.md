@@ -31,14 +31,14 @@ Data FMovies is a web application designed to keep you up to date with the lates
 - ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) - The web framework for content-oriented sites.
 - ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) - JavaScript with modern syntax.
 - ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) - A utility-first CSS framework for rapidly building custom designs.
-- ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white) - Tool for efficient handling of data states in React applications.
+<!-- - ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white) - Tool for efficient handling of data states in React applications. -->
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
 - **Node.js**: You will need to have Node.js installed on your machine.
-- **Account in [The Movie DB](https://www.themoviedb.org/)**: Required to obtain the API Key.
+- **Account in [The Movie DB](https://www.themoviedb.org/)**: Required to obtain the Access Token.
 
 ### Installation
 
@@ -56,7 +56,7 @@ git clone https://github.com/DylanCerv/app-movie.git
 npm install
 ```
 
-- or you can use [pnpm](https://pnpm.io):
+<!-- - or you can use [pnpm](https://pnpm.io):
 
 ```bash
 pnpm install
@@ -66,13 +66,13 @@ pnpm install
 
 ```bash
 yarn install
-```
+``` -->
 
 3. Set the environment variables:
 
 - Create a file in the root of the project called `.env`.
 - Copy the environment variables from the `.env.example` file.
-- Make sure to add the [API Key](https://www.themoviedb.org/settings/api) obtained from The Movie DB.
+- Make sure to add the [Access Token](https://www.themoviedb.org/settings/api) obtained from The Movie DB.
 
 4. Run the development server:
 
@@ -80,12 +80,12 @@ yarn install
 # Run with npm:
 npm run dev
 
-# Run with pnpm:
+```
+<!-- # Run with pnpm:
 pnpm dev
 
 # Run with yarn:
-yarn dev
-```
+yarn dev -->
 
 
 
@@ -137,12 +137,3 @@ If you want to contribute in a simpler way, you can start this project from _Sta
 ## 🔑 License
 
 [MIT](#) - Created by [**Dylan-Cerv**](https://dylan-cerv.web.app/)
-
-
-## ✅ To-Do...
-
-- [ ] Mejorar diseño de la página
-- [ ] Crear pagina de actores/cast/crew/... (creditos)
-- [ ] Mejorar la precarga de las imágenes
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
